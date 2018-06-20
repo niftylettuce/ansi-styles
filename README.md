@@ -9,8 +9,8 @@ You probably want the higher-level [chalk](https://github.com/chalk/chalk) modul
 
 ## Install
 
-```
-$ npm install ansi-styles
+```sh
+npm install ansi-styles
 ```
 
 
@@ -32,6 +32,7 @@ console.log(style.color.ansi256.rgb(199, 20, 250) + 'Hello world!' + style.color
 console.log(style.color.ansi16m.hex('#ABCDEF') + 'Hello world!' + style.color.close);
 ```
 
+
 ## API
 
 Each style has an `open` and `close` property.
@@ -41,61 +42,61 @@ Each style has an `open` and `close` property.
 
 ### Modifiers
 
-- `reset`
-- `bold`
-- `dim`
-- `italic` *(Not widely supported)*
-- `underline`
-- `inverse`
-- `hidden`
-- `strikethrough` *(Not widely supported)*
+* `reset`
+* `bold`
+* `dim`
+* `italic` _(Not widely supported)_
+* `underline`
+* `inverse`
+* `hidden`
+* `strikethrough` _(Not widely supported)_
 
 ### Colors
 
-- `black`
-- `red`
-- `green`
-- `yellow`
-- `blue`
-- `magenta`
-- `cyan`
-- `white`
-- `gray` ("bright black")
-- `redBright`
-- `greenBright`
-- `yellowBright`
-- `blueBright`
-- `magentaBright`
-- `cyanBright`
-- `whiteBright`
+* `black`
+* `red`
+* `green`
+* `yellow`
+* `blue`
+* `magenta`
+* `cyan`
+* `white`
+* `gray` ("bright black")
+* `redBright`
+* `greenBright`
+* `yellowBright`
+* `blueBright`
+* `magentaBright`
+* `cyanBright`
+* `whiteBright`
 
 ### Background colors
 
-- `bgBlack`
-- `bgRed`
-- `bgGreen`
-- `bgYellow`
-- `bgBlue`
-- `bgMagenta`
-- `bgCyan`
-- `bgWhite`
-- `bgBlackBright`
-- `bgRedBright`
-- `bgGreenBright`
-- `bgYellowBright`
-- `bgBlueBright`
-- `bgMagentaBright`
-- `bgCyanBright`
-- `bgWhiteBright`
+* `bgBlack`
+* `bgRed`
+* `bgGreen`
+* `bgYellow`
+* `bgBlue`
+* `bgMagenta`
+* `bgCyan`
+* `bgWhite`
+* `bgBlackBright`
+* `bgRedBright`
+* `bgGreenBright`
+* `bgYellowBright`
+* `bgBlueBright`
+* `bgMagentaBright`
+* `bgCyanBright`
+* `bgWhiteBright`
 
 
 ## Advanced usage
 
 By default, you get a map of styles, but the styles are also available as groups. They are non-enumerable so they don't show up unless you access them explicitly. This makes it easier to expose only a subset in a higher-level module.
 
-- `style.modifier`
-- `style.color`
-- `style.bgColor`
+* `style.modifier`
+* `style.color`
+* `style.bgColor`
 
 ###### Example
 
@@ -133,15 +134,15 @@ style.bgColor.ansi16m.hex('#C0FFEE'); // Hex (RGB) to 16 million color backgroun
 
 ## Related
 
-- [ansi-escapes](https://github.com/sindresorhus/ansi-escapes) - ANSI escape codes for manipulating the terminal
+* [ansi-escapes](https://github.com/sindresorhus/ansi-escapes) - ANSI escape codes for manipulating the terminal
 
 
 ## Maintainers
 
-- [Sindre Sorhus](https://github.com/sindresorhus)
-- [Josh Junon](https://github.com/qix-)
+* [Sindre Sorhus](https://github.com/sindresorhus)
+* [Josh Junon](https://github.com/qix-)
 
 
 ## License
 
-MIT
+[MIT](LICENSE) © [Sindre Sorhus](http://sindresorhus.com)
