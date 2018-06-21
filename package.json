@@ -12,21 +12,9 @@
     "email": "sindresorhus@gmail.com",
     "url": "sindresorhus.com"
   },
-  "lint-staged": {
-    "*.{js,jsx,mjs,ts,tsx,css,less,scss,json,graphql}": [
-      "prettier --write --single-quote --trailing-comma none",
-      "git add"
-    ],
-    "*.md": [
-      "remark . -qfo",
-      "git add"
-    ]
-  },
   "main": "lib/index.js",
-  "browser": "dist/ansi-styles.js",
   "files": [
-    "lib",
-    "dist"
+    "lib"
   ],
   "remarkConfig": {
     "plugins": [
@@ -39,17 +27,13 @@
   "scripts": {
     "screenshot": "svg-term --command='node screenshot' --out=screenshot.svg --padding=3 --width=55 --height=3 --at=1000 --no-cursor",
     "coverage": "nyc report --reporter=text-lcov > coverage.lcov && codecov",
-    "lint": "xo && remark . -qfo && eslint lib,dist",
-    "precommit": "lint-staged && npm test",
+    "lint": "xo && remark . -qfo && eslint lib",
+    "precommit": "npm test",
     "test": "npm run build && npm run lint && npm run ava",
     "test-coverage": "npm run build && npm run lint && npm run nyc",
     "ava": "cross-env NODE_ENV=test ava",
     "nyc": "cross-env NODE_ENV=test nyc ava",
-    "build": "npm run build:clean && npm run build:lib && npm run build:dist",
-    "build:clean": "rimraf lib dist",
-    "build:lib": "babel src --out-dir lib",
-    "build:dist": "npm run browserify",
-    "browserify": "browserify src/index.js -o dist/ansi-styles.js -d -t babelify"
+    "build": "rimraf lib && babel src --out-dir lib"
   },
   "keywords": [
     "ansi",
@@ -81,10 +65,7 @@
     "@babel/core": "^7.0.0-beta.51",
     "@babel/plugin-transform-template-literals": "^7.0.0-beta.51",
     "@babel/preset-env": "^7.0.0-beta.51",
-    "@babel/preset-es2015": "^7.0.0-beta.51",
     "ava": "^1.0.0-beta.6",
-    "babelify": "^9.0.0",
-    "browserify": "^16.2.2",
     "caniuse-lite": "^1.0.30000856",
     "codecov": "^3.0.2",
     "cross-env": "^5.2.0",
@@ -92,16 +73,12 @@
     "eslint-config-prettier": "^2.9.0",
     "eslint-plugin-compat": "^2.4.0",
     "eslint-plugin-prettier": "^2.6.0",
-    "husky": "^0.14.3",
-    "lint-staged": "^7.2.0",
     "nyc": "^12.0.2",
     "prettier": "^1.13.5",
     "remark-cli": "^5.0.0",
     "remark-preset-github": "^0.0.8",
     "rimraf": "^2.6.2",
     "svg-term-cli": "^2.1.1",
-    "tinyify": "^2.4.3",
-    "uglify-js": "^3.4.1",
     "xo": "^0.21.1"
   },
   "xo": {
@@ -113,8 +90,7 @@
       "sourceType": "script"
     },
     "env": [
-      "node",
-      "browser"
+      "node"
     ],
     "rules": {
       "prettier/prettier": [
@@ -137,26 +113,6 @@
       "no-warning-comments": "off"
     },
     "space": true,
-    "overrides": [
-      {
-        "plugins": [
-          "prettier",
-          "compat"
-        ],
-        "parserOptions": {
-          "sourceType": "script"
-        },
-        "files": [
-          "lib/**/*.js"
-        ],
-        "envs": [
-          "browser",
-          "node"
-        ],
-        "rules": {
-          "compat/compat": "error"
-        }
-      }
-    ]
+    "ignores": [ "lib/**" ]
   }
 }
